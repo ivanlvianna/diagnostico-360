@@ -1,1 +1,688 @@
-file:///Users/ivanluizvianna/Downloads/index%20(1).html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Patrimonial 360° — Ivan Vianna CFP®</title>
+<style>
+  :root {
+    --dk: #1A3C2E;
+    --mg: #2E5C46;
+    --lg: #E8F0EB;
+    --go: #B8922A;
+    --lgo: #F5EDD5;
+    --wht: #ffffff;
+    --blk: #1A1A1A;
+    --gry: #666666;
+    --lgr: #F5F5F5;
+    --red: #8B2020;
+    --bdr: #C8D8CC;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f2f0;
+    color: var(--blk);
+    min-height: 100vh;
+  }
+
+  .header {
+    background: var(--dk);
+    padding: 18px 20px;
+    border-bottom: 3px solid var(--go);
+  }
+  .header-name { color: var(--wht); font-size: 15px; font-weight: 700; }
+  .header-cred { color: var(--go); font-size: 12px; margin-top: 2px; }
+  .header-contact { color: #ccc; font-size: 11px; margin-top: 4px; }
+
+  .hero {
+    background: var(--dk);
+    padding: 28px 20px 24px;
+    border-bottom: 4px solid var(--go);
+    text-align: center;
+  }
+  .hero h1 { color: var(--wht); font-size: 22px; font-weight: 700; line-height: 1.3; }
+  .hero p { color: #cdd9c4; font-size: 13px; margin-top: 10px; line-height: 1.6; }
+
+  .progress-bar-wrap {
+    background: var(--wht);
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--bdr);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .progress-info { display: flex; justify-content: space-between; font-size: 12px; color: var(--gry); margin-bottom: 6px; }
+  .progress-track { height: 6px; background: #e0e0e0; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--go); border-radius: 3px; transition: width 0.3s ease; }
+
+  .container { max-width: 680px; margin: 0 auto; padding: 20px 16px 80px; }
+
+  .section-card {
+    background: var(--wht);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    border: 1px solid var(--bdr);
+  }
+  .section-header {
+    background: var(--dk);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-icon { font-size: 18px; }
+  .section-title { color: var(--wht); font-size: 13px; font-weight: 700; }
+  .section-num { color: var(--go); font-size: 11px; margin-left: auto; }
+  .section-body { padding: 0; }
+
+  .question {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .question:last-child { border-bottom: none; }
+  .question label { font-size: 13px; font-weight: 600; color: var(--blk); display: block; margin-bottom: 8px; line-height: 1.4; }
+  .question label .peso { font-size: 10px; font-weight: 400; color: var(--gry); margin-left: 4px; }
+
+  .radio-group { display: flex; flex-direction: column; gap: 6px; }
+  .radio-opt {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 13px;
+    color: var(--blk);
+  }
+  .radio-opt:hover { border-color: var(--mg); background: var(--lg); }
+  .radio-opt input { accent-color: var(--mg); width: 16px; height: 16px; flex-shrink: 0; }
+  .radio-opt.selected { border-color: var(--mg); background: var(--lg); font-weight: 500; }
+
+  input[type="text"], input[type="number"], input[type="email"],
+  input[type="tel"], textarea, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--blk);
+    background: #fafafa;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.15s;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--mg);
+    background: var(--wht);
+    box-shadow: 0 0 0 3px rgba(46,92,70,0.1);
+  }
+  textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+
+  .input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 480px) { .input-group { grid-template-columns: 1fr; } }
+
+  .field-label { font-size: 11px; font-weight: 600; color: var(--gry); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 4px; }
+
+  /* Resultado */
+  .resultado {
+    display: none;
+    background: var(--wht);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    border: 2px solid var(--go);
+    margin-bottom: 16px;
+  }
+  .resultado.show { display: block; }
+  .res-header { background: var(--dk); padding: 16px; text-align: center; }
+  .res-header h2 { color: var(--wht); font-size: 16px; }
+  .res-score-wrap { padding: 24px 16px; text-align: center; border-bottom: 1px solid var(--bdr); }
+  .res-score { font-size: 52px; font-weight: 700; color: var(--go); line-height: 1; }
+  .res-score-label { font-size: 13px; color: var(--gry); margin-top: 4px; }
+  .res-nivel { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-top: 12px; }
+  .nivel-critico { background: #FBF0F0; color: var(--red); }
+  .nivel-atencao { background: #FFF8E1; color: #7A5500; }
+  .nivel-bom { background: var(--lg); color: var(--mg); }
+  .nivel-otimo { background: #E8F5E9; color: #1B5E20; }
+
+  .res-dims { padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 480px) { .res-dims { grid-template-columns: 1fr; } }
+  .dim-card { background: var(--lgr); border-radius: 8px; padding: 10px 12px; }
+  .dim-name { font-size: 11px; font-weight: 600; color: var(--gry); margin-bottom: 4px; }
+  .dim-bar-track { height: 6px; background: #ddd; border-radius: 3px; overflow: hidden; }
+  .dim-bar-fill { height: 100%; border-radius: 3px; }
+  .dim-score-txt { font-size: 11px; color: var(--blk); margin-top: 3px; text-align: right; }
+
+  .res-gaps { padding: 0 16px 16px; }
+  .gap-item { display: flex; align-items: flex-start; gap: 8px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+  .gap-item:last-child { border-bottom: none; }
+  .gap-icon { width: 20px; height: 20px; border-radius: 50%; background: #FBF0F0; color: var(--red); font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .gap-text { font-size: 12px; color: var(--blk); line-height: 1.4; }
+
+  .cta-section { padding: 16px; border-top: 2px solid var(--go); background: var(--lgo); }
+  .cta-title { font-size: 14px; font-weight: 700; color: var(--dk); margin-bottom: 6px; }
+  .cta-sub { font-size: 12px; color: var(--blk); margin-bottom: 14px; line-height: 1.5; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { padding: 12px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: opacity 0.15s; text-align: center; }
+  .btn:hover { opacity: 0.88; }
+  .btn-wpp { background: #25D366; color: var(--wht); flex: 1; min-width: 140px; }
+  .btn-email { background: var(--go); color: var(--wht); flex: 1; min-width: 140px; }
+
+  .submit-btn {
+    width: 100%; padding: 16px; background: var(--dk); color: var(--wht);
+    border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: opacity 0.15s; margin-top: 8px;
+  }
+  .submit-btn:hover { opacity: 0.88; }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .identificacao { background: var(--wht); border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid var(--bdr); }
+  .identificacao h3 { font-size: 13px; font-weight: 700; color: var(--dk); margin-bottom: 12px; }
+
+  .obrig { color: var(--red); }
+  .instrucao { font-size: 11px; color: var(--gry); font-style: italic; margin-top: 4px; }
+
+  .footer {
+    background: var(--dk);
+    border-top: 3px solid var(--go);
+    padding: 16px 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 11px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-name">Ivan Vianna · CFP®</div>
+  <div class="header-cred">Finanças Pessoais e Empresariais · CNPJ 56.099.913/0001-61</div>
+  <div class="header-contact">(11) 97953-0555 · ivan.luiz@integraalianca.com.br</div>
+</div>
+
+<div class="hero">
+  <h1>Diagnóstico Patrimonial 360°</h1>
+  <p>Preencha com calma — leva cerca de 10 minutos.<br>Suas respostas são confidenciais e serão usadas exclusivamente para o seu planejamento.</p>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-info">
+    <span id="progress-label">0 de 42 questões respondidas</span>
+    <span id="progress-pct">0%</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+</div>
+
+<div class="container">
+
+  <!-- IDENTIFICAÇÃO -->
+  <div class="identificacao">
+    <h3>Sua identificação</h3>
+    <div class="input-group" style="margin-bottom:10px">
+      <div>
+        <div class="field-label">Nome completo <span class="obrig">*</span></div>
+        <input type="text" id="nome" placeholder="Seu nome completo">
+      </div>
+      <div>
+        <div class="field-label">Profissão / cargo</div>
+        <input type="text" id="profissao" placeholder="Ex.: Médico, Diretor, Empresário">
+      </div>
+    </div>
+    <div class="input-group" style="margin-bottom:10px">
+      <div>
+        <div class="field-label">WhatsApp <span class="obrig">*</span></div>
+        <input type="tel" id="wpp" placeholder="(11) 99999-9999">
+      </div>
+      <div>
+        <div class="field-label">E-mail</div>
+        <input type="email" id="email" placeholder="seu@email.com">
+      </div>
+    </div>
+    <div class="input-group">
+      <div>
+        <div class="field-label">Idade</div>
+        <input type="number" id="idade" placeholder="Ex.: 42" min="18" max="90">
+      </div>
+      <div>
+        <div class="field-label">Estado civil</div>
+        <select id="estado_civil">
+          <option value="">Selecione</option>
+          <option>Solteiro(a)</option>
+          <option>Casado(a)</option>
+          <option>União estável</option>
+          <option>Divorciado(a)</option>
+          <option>Viúvo(a)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div id="secoes"></div>
+
+  <button class="submit-btn" id="btn-calcular" onclick="calcular()">Ver meu diagnóstico completo →</button>
+
+  <!-- RESULTADO -->
+  <div class="resultado" id="resultado">
+    <div class="res-header"><h2>Seu Diagnóstico Patrimonial 360°</h2></div>
+    <div class="res-score-wrap">
+      <div class="res-score" id="res-score-num">0</div>
+      <div class="res-score-label">de 100 pontos</div>
+      <div class="res-nivel" id="res-nivel-badge">—</div>
+    </div>
+    <div class="res-dims" id="res-dims"></div>
+    <div class="res-gaps" id="res-gaps-wrap">
+      <div style="font-size:13px;font-weight:700;color:var(--dk);margin-bottom:8px">Seus principais gaps identificados:</div>
+      <div id="res-gaps"></div>
+    </div>
+    <div class="cta-section">
+      <div class="cta-title">Quer transformar esse diagnóstico em um plano real?</div>
+      <div class="cta-sub">Conversa de 30 minutos — gratuita, sem compromisso, sem pitch de produto. Ivan Vianna te mostra o que está faltando e como corrigir.</div>
+      <div class="btn-row">
+        <a class="btn btn-wpp" id="btn-wpp-result" href="#" target="_blank">WhatsApp — (11) 97953-0555</a>
+        <a class="btn btn-email" href="mailto:ivan.luiz@integraalianca.com.br?subject=Diagnóstico%20360°%20-%20Agendamento" target="_blank">Agendar por e-mail</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Ivan Vianna · CFP® · Finanças Pessoais e Empresariais · CNPJ 56.099.913/0001-61<br>
+  (11) 97953-0555 · ivan.luiz@integraalianca.com.br<br><br>
+  Diagnóstico educacional — não constitui recomendação de investimento. Informações confidenciais.
+</div>
+
+<script>
+const secoes = [
+  {
+    id: 'organizacao',
+    icon: '📋',
+    titulo: 'Organização financeira',
+    peso_max: 15,
+    questoes: [
+      { id: 'q1', texto: 'Você sabe exatamente qual é seu patrimônio líquido total hoje?', peso: 3,
+        opcoes: [{t:'Sim, tenho tudo mapeado com valores atualizados',v:3},{t:'Sei aproximadamente, mas sem precisão',v:2},{t:'Tenho uma ideia geral, mas sem mapeamento',v:1},{t:'Não sei ao certo',v:0}] },
+      { id: 'q2', texto: 'Você tem orçamento mensal definido e acompanha suas despesas?', peso: 3,
+        opcoes: [{t:'Sim, controlo tudo regularmente',v:3},{t:'Tenho parcialmente, mas não acompanho sempre',v:2},{t:'Já tentei, mas não mantenho',v:1},{t:'Não tenho controle de gastos',v:0}] },
+      { id: 'q3', texto: 'Suas metas financeiras estão escritas com valor, prazo e aporte definidos?', peso: 3,
+        opcoes: [{t:'Sim, todas formalizadas e monitoradas',v:3},{t:'Algumas metas escritas, sem monitoramento',v:2},{t:'Tenho metas na cabeça, sem formalizar',v:1},{t:'Não tenho metas definidas',v:0}] },
+      { id: 'q4', texto: 'Você tem uma reserva de emergência equivalente a pelo menos 6 meses de despesas?', peso: 3,
+        opcoes: [{t:'Sim, reserva estruturada e separada',v:3},{t:'Tenho algo, mas menos de 6 meses',v:2},{t:'Tenho muito pouco ou quase nada',v:1},{t:'Não tenho reserva de emergência',v:0}] },
+      { id: 'q5', texto: 'Você tem dívidas com juros acima de 12% ao ano (cartão, cheque especial, etc.)?', peso: 3,
+        opcoes: [{t:'Não tenho dívidas com juros altos',v:3},{t:'Tenho algumas, mas estou quitando',v:2},{t:'Tenho dívidas relevantes',v:1},{t:'Tenho dívidas significativas e crescentes',v:0}] },
+    ]
+  },
+  {
+    id: 'investimentos',
+    icon: '📈',
+    titulo: 'Investimentos e carteira',
+    peso_max: 20,
+    questoes: [
+      { id: 'q6', texto: 'Sua carteira de investimentos está diversificada por classe de ativo?', peso: 4,
+        opcoes: [{t:'Sim: renda fixa, variável, FIIs e internacional',v:4},{t:'Parcialmente: 2 ou 3 classes',v:3},{t:'Apenas renda fixa bancária',v:2},{t:'Poupança ou conta corrente',v:0}] },
+      { id: 'q7', texto: 'Você sabe qual é o rendimento médio anual da sua carteira em relação ao CDI?', peso: 4,
+        opcoes: [{t:'Sim, monitoro regularmente e está acima de 100% CDI',v:4},{t:'Sei aproximadamente, está próximo ao CDI',v:3},{t:'Sei que está abaixo, mas não monitoro',v:2},{t:'Não monitoro ou não sei',v:0}] },
+      { id: 'q8', texto: 'Você tem algum investimento internacional (USD, EUR ou ativos globais)?', peso: 4,
+        opcoes: [{t:'Sim, mais de 10% do patrimônio no exterior',v:4},{t:'Tenho um pouco, menos de 10%',v:2},{t:'Não tenho, mas quero ter',v:1},{t:'Não tenho e não considero necessário',v:0}] },
+      { id: 'q9', texto: 'Seus investimentos estão organizados por objetivo (segurança / crescimento / legado)?', peso: 4,
+        opcoes: [{t:'Sim, carteira estruturada por objetivos',v:4},{t:'Parcialmente organizada',v:2},{t:'Não, tudo junto sem distinção',v:0},{t:'Não tenho investimentos estruturados',v:0}] },
+      { id: 'q10', texto: 'Você tem algum produto de renda variável (ações, FIIs, ETFs)?', peso: 4,
+        opcoes: [{t:'Sim, com estratégia e dentro do meu perfil',v:4},{t:'Sim, mas sem estratégia clara',v:2},{t:'Não, mas gostaria de ter',v:1},{t:'Não tenho interesse em renda variável',v:0}] },
+    ]
+  },
+  {
+    id: 'previdencia',
+    icon: '🏦',
+    titulo: 'Previdência e aposentadoria',
+    peso_max: 15,
+    questoes: [
+      { id: 'q11', texto: 'Você tem previdência privada (PGBL ou VGBL)?', peso: 4,
+        opcoes: [{t:'Sim, estruturada e adequada ao meu perfil fiscal',v:4},{t:'Sim, mas não sei se está otimizada',v:3},{t:'Não tenho, mas estou considerando',v:1},{t:'Não tenho e não planejo ter',v:0}] },
+      { id: 'q12', texto: 'Você sabe quanto precisará acumular para manter seu padrão de vida na aposentadoria?', peso: 4,
+        opcoes: [{t:'Sim, tenho o número calculado e um plano',v:4},{t:'Sei aproximadamente',v:2},{t:'Não calculei ainda',v:1},{t:'Não pensei sobre isso',v:0}] },
+      { id: 'q13', texto: 'Você contribui regularmente para a sua aposentadoria (além do INSS)?', peso: 4,
+        opcoes: [{t:'Sim, aportes regulares todo mês',v:4},{t:'Eventualmente, sem regularidade',v:2},{t:'Raramente',v:1},{t:'Não contribuo',v:0}] },
+      { id: 'q14', texto: 'O INSS será suficiente para o seu padrão de vida na aposentadoria?', peso: 3,
+        opcoes: [{t:'Não — tenho plano complementar robusto',v:3},{t:'Parcialmente — tenho algo, mas insuficiente',v:2},{t:'Dependo principalmente do INSS',v:1},{t:'Não pensei sobre isso',v:0}] },
+    ]
+  },
+  {
+    id: 'protecao',
+    icon: '🛡️',
+    titulo: 'Proteção patrimonial',
+    peso_max: 15,
+    questoes: [
+      { id: 'q15', texto: 'Você tem seguro de vida adequado ao seu patrimônio e obrigações?', peso: 4,
+        opcoes: [{t:'Sim, seguro estruturado com cobertura adequada',v:4},{t:'Tenho algo, mas não sei se é suficiente',v:2},{t:'Tenho apenas o do trabalho (se houver)',v:1},{t:'Não tenho seguro de vida',v:0}] },
+      { id: 'q16', texto: 'Você tem seguro de invalidez ou renda por incapacidade?', peso: 4,
+        opcoes: [{t:'Sim',v:4},{t:'Tenho algo pelo trabalho',v:2},{t:'Não tenho',v:0},{t:'Não sabia que existia',v:0}] },
+      { id: 'q17', texto: 'Seu patrimônio tem proteção jurídica contra riscos pessoais ou profissionais?', peso: 4,
+        opcoes: [{t:'Sim, tenho holding ou estrutura de proteção formal',v:4},{t:'Parcialmente',v:2},{t:'Não tenho proteção estruturada',v:0},{t:'Não sei o que isso significa',v:0}] },
+      { id: 'q18', texto: 'Você tem plano de saúde adequado para você e sua família?', peso: 3,
+        opcoes: [{t:'Sim, plano completo e atualizado',v:3},{t:'Tenho, mas com cobertura limitada',v:2},{t:'Tenho pelo trabalho, mas é insuficiente',v:1},{t:'Não tenho plano de saúde',v:0}] },
+    ]
+  },
+  {
+    id: 'sucessao',
+    icon: '📜',
+    titulo: 'Planejamento sucessório',
+    peso_max: 15,
+    questoes: [
+      { id: 'q19', texto: 'Você tem testamento ou planejamento sucessório formal?', peso: 4,
+        opcoes: [{t:'Sim, testamento e planejamento estruturado',v:4},{t:'Tenho pensado, mas não formalizei',v:2},{t:'Não tenho',v:0},{t:'Não acho necessário agora',v:0}] },
+      { id: 'q20', texto: 'Seus herdeiros sabem onde estão seus ativos e documentos importantes?', peso: 3,
+        opcoes: [{t:'Sim, tudo mapeado e comunicado',v:3},{t:'Parcialmente',v:2},{t:'Não foram informados',v:0},{t:'Não pensei sobre isso',v:0}] },
+      { id: 'q21', texto: 'Você tem holding familiar ou estrutura para proteger e transferir seu patrimônio?', peso: 4,
+        opcoes: [{t:'Sim, holding constituída e em funcionamento',v:4},{t:'Estou avaliando constituir',v:2},{t:'Não tenho',v:0},{t:'Não sei o que é ou não se aplica',v:0}] },
+      { id: 'q22', texto: 'Seus beneficiários de previdência privada e seguros estão atualizados?', peso: 4,
+        opcoes: [{t:'Sim, revisados recentemente',v:4},{t:'Acredito que sim, mas não verifiquei',v:2},{t:'Não sei ou não tenho previdência/seguro',v:0},{t:'Nunca verifiquei',v:0}] },
+    ]
+  },
+  {
+    id: 'empresarial',
+    icon: '🏢',
+    titulo: 'Estrutura empresarial (PJ)',
+    peso_max: 10,
+    questoes: [
+      { id: 'q23', texto: 'Você tem empresa (PJ) ativa?', peso: 0,
+        opcoes: [{t:'Sim',v:0},{t:'Não',v:0}] },
+      { id: 'q24', texto: 'Suas finanças pessoais (PF) e empresariais (PJ) estão completamente separadas?', peso: 3,
+        opcoes: [{t:'Sim, separação total e formal',v:3},{t:'Parcialmente separadas',v:2},{t:'Estão misturadas',v:0},{t:'Não tenho PJ / não se aplica',v:0}] },
+      { id: 'q25', texto: 'Seu pró-labore está otimizado do ponto de vista tributário?', peso: 4,
+        opcoes: [{t:'Sim, revisado com apoio especializado',v:4},{t:'Acho que está ok, mas nunca verifiquei',v:2},{t:'É informal ou não formalizado',v:0},{t:'Não tenho PJ / não se aplica',v:0}] },
+      { id: 'q26', texto: 'Você tem acordo de sócios formalizado (se aplicável)?', peso: 3,
+        opcoes: [{t:'Sim, acordo formal e atualizado',v:3},{t:'Só o contrato social básico',v:1},{t:'Não tenho acordo de sócios',v:0},{t:'Não tenho sócios / não se aplica',v:0}] },
+    ]
+  },
+  {
+    id: 'comportamento',
+    icon: '🧠',
+    titulo: 'Comportamento financeiro',
+    peso_max: 10,
+    questoes: [
+      { id: 'q27', texto: 'Você toma decisões financeiras impulsivas (compras, investimentos não planejados)?', peso: 3,
+        opcoes: [{t:'Raramente — sou bastante disciplinado(a)',v:3},{t:'Às vezes',v:2},{t:'Com frequência',v:1},{t:'Sim, é um hábito recorrente',v:0}] },
+      { id: 'q28', texto: 'Você adia decisões financeiras importantes por falta de tempo ou clareza?', peso: 3,
+        opcoes: [{t:'Não — tenho rotina financeira estabelecida',v:3},{t:'Às vezes adio',v:2},{t:'Com frequência',v:1},{t:'Sempre adio',v:0}] },
+      { id: 'q29', texto: 'Você sente ansiedade ou preocupação frequente com finanças?', peso: 4,
+        opcoes: [{t:'Não — tenho tranquilidade sobre minha situação',v:4},{t:'Pouca preocupação',v:3},{t:'Preocupação moderada',v:2},{t:'Alta ansiedade financeira',v:0}] },
+    ]
+  },
+  {
+    id: 'perspectivas',
+    icon: '🎯',
+    titulo: 'Perspectivas e objetivos',
+    peso_max: 0,
+    questoes: [
+      { id: 'q30', texto: 'Qual é a sua maior prioridade financeira hoje?', peso: 0, tipo: 'texto',
+        placeholder: 'Ex.: organizar os investimentos, preparar a aposentadoria, proteger o patrimônio...' },
+      { id: 'q31', texto: 'Qual é o seu horizonte de tempo para o principal objetivo?', peso: 0,
+        opcoes: [{t:'Menos de 1 ano',v:0},{t:'1 a 3 anos',v:0},{t:'3 a 10 anos',v:0},{t:'Mais de 10 anos',v:0}] },
+      { id: 'q32', texto: 'Qual é a sua renda mensal líquida aproximada?', peso: 0,
+        opcoes: [{t:'Até R$ 10.000',v:0},{t:'R$ 10.000 a R$ 20.000',v:0},{t:'R$ 20.000 a R$ 50.000',v:0},{t:'Acima de R$ 50.000',v:0}] },
+      { id: 'q33', texto: 'Qual é seu patrimônio total estimado (imóveis + investimentos + outros)?', peso: 0,
+        opcoes: [{t:'Até R$ 200.000',v:0},{t:'R$ 200.000 a R$ 500.000',v:0},{t:'R$ 500.000 a R$ 2.000.000',v:0},{t:'Acima de R$ 2.000.000',v:0}] },
+      { id: 'q34', texto: 'O que te motivou a preencher esse diagnóstico agora?', peso: 0, tipo: 'texto',
+        placeholder: 'Pode ser breve — 1 ou 2 frases' },
+    ]
+  },
+];
+
+// Render questões
+const container = document.getElementById('secoes');
+let totalPontuavel = 0;
+
+secoes.forEach((sec, si) => {
+  const card = document.createElement('div');
+  card.className = 'section-card';
+
+  let totalSec = sec.questoes.filter(q=>q.peso>0).reduce((a,q)=>a+q.peso,0);
+  totalPontuavel += totalSec;
+
+  card.innerHTML = `
+    <div class="section-header">
+      <span class="section-icon">${sec.icon}</span>
+      <span class="section-title">${sec.titulo}</span>
+      ${totalSec > 0 ? `<span class="section-num">${totalSec} pts</span>` : ''}
+    </div>
+    <div class="section-body" id="sec-body-${sec.id}"></div>
+  `;
+  container.appendChild(card);
+
+  const body = document.getElementById(`sec-body-${sec.id}`);
+
+  sec.questoes.forEach((q, qi) => {
+    const qdiv = document.createElement('div');
+    qdiv.className = 'question';
+
+    if (q.tipo === 'texto') {
+      qdiv.innerHTML = `
+        <label>${q.texto}</label>
+        <textarea id="${q.id}" placeholder="${q.placeholder||''}" rows="2" oninput="updateProgress()"></textarea>
+      `;
+    } else {
+      let optsHtml = q.opcoes.map((op, oi) => `
+        <label class="radio-opt" id="opt-${q.id}-${oi}">
+          <input type="radio" name="${q.id}" value="${op.v}" onchange="selectOpt('${q.id}',${oi},${q.opcoes.length}); updateProgress()">
+          ${op.t}
+        </label>
+      `).join('');
+      qdiv.innerHTML = `
+        <label>${q.texto} ${q.peso > 0 ? `<span class="peso">(${q.peso} pts)</span>` : ''}</label>
+        <div class="radio-group">${optsHtml}</div>
+      `;
+    }
+    body.appendChild(qdiv);
+  });
+});
+
+function selectOpt(qid, selectedIdx, total) {
+  for (let i = 0; i < total; i++) {
+    const el = document.getElementById(`opt-${qid}-${i}`);
+    if (el) el.classList.remove('selected');
+  }
+  const sel = document.getElementById(`opt-${qid}-${selectedIdx}`);
+  if (sel) sel.classList.add('selected');
+}
+
+// Total de questões para progress
+const totalQuestoes = secoes.reduce((a,s)=>a+s.questoes.length, 0);
+
+function updateProgress() {
+  let respondidas = 0;
+  secoes.forEach(sec => {
+    sec.questoes.forEach(q => {
+      if (q.tipo === 'texto') {
+        const el = document.getElementById(q.id);
+        if (el && el.value.trim()) respondidas++;
+      } else {
+        const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (checked) respondidas++;
+      }
+    });
+  });
+  const pct = Math.round(respondidas / totalQuestoes * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = `${respondidas} de ${totalQuestoes} questões respondidas`;
+  document.getElementById('progress-pct').textContent = pct + '%';
+}
+
+function calcular() {
+  const nome = document.getElementById('nome').value.trim();
+  const wpp = document.getElementById('wpp').value.trim();
+  if (!nome || !wpp) { alert('Por favor, preencha seu nome e WhatsApp antes de continuar.'); return; }
+
+  let totalScore = 0;
+  let maxScore = 0;
+  const dimScores = {};
+
+  secoes.forEach(sec => {
+    let secScore = 0;
+    let secMax = 0;
+    sec.questoes.forEach(q => {
+      if (q.peso === 0) return;
+      secMax += q.peso;
+      const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+      if (checked) secScore += parseInt(checked.value);
+    });
+    dimScores[sec.id] = { nome: sec.titulo, score: secScore, max: secMax };
+    totalScore += secScore;
+    maxScore += secMax;
+  });
+
+  const pctGeral = maxScore > 0 ? Math.round(totalScore / maxScore * 100) : 0;
+
+  // Score normalizado 0-100
+  document.getElementById('res-score-num').textContent = pctGeral;
+
+  // Nível
+  let nivel, nivelClass, nivelMsg;
+  if (pctGeral >= 80) { nivel='Excelente'; nivelClass='nivel-otimo'; }
+  else if (pctGeral >= 60) { nivel='Bom — com ajustes pontuais'; nivelClass='nivel-bom'; }
+  else if (pctGeral >= 40) { nivel='Atenção — gaps relevantes'; nivelClass='nivel-atencao'; }
+  else { nivel='Crítico — requer ação imediata'; nivelClass='nivel-critico'; }
+
+  const badge = document.getElementById('res-nivel-badge');
+  badge.textContent = nivel;
+  badge.className = `res-nivel ${nivelClass}`;
+
+  // Dimensões
+  const dimsEl = document.getElementById('res-dims');
+  dimsEl.innerHTML = '';
+  Object.values(dimScores).forEach(dim => {
+    if (dim.max === 0) return;
+    const pct = Math.round(dim.score / dim.max * 100);
+    const barColor = pct >= 70 ? '#2E5C46' : pct >= 40 ? '#B8922A' : '#8B2020';
+    dimsEl.innerHTML += `
+      <div class="dim-card">
+        <div class="dim-name">${dim.nome}</div>
+        <div class="dim-bar-track"><div class="dim-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+        <div class="dim-score-txt">${dim.score}/${dim.max} pts (${pct}%)</div>
+      </div>
+    `;
+  });
+
+  // Gaps — dimensões com menor performance
+  const sorted = Object.values(dimScores).filter(d=>d.max>0).map(d=>({...d, pct: Math.round(d.score/d.max*100)})).sort((a,b)=>a.pct-b.pct);
+  const gapsEl = document.getElementById('res-gaps');
+  gapsEl.innerHTML = '';
+  const gapMsgs = {
+    'organizacao': 'Organização financeira básica — falta mapeamento patrimonial e controle de gastos.',
+    'investimentos': 'Carteira de investimentos sem diversificação ou abaixo do potencial para o seu perfil.',
+    'previdencia': 'Previdência insuficiente — risco de depender exclusivamente do INSS.',
+    'protecao': 'Proteção patrimonial frágil — seguros e proteção jurídica precisam ser revisados.',
+    'sucessao': 'Planejamento sucessório inexistente ou incompleto — risco de inventário prolongado.',
+    'empresarial': 'Estrutura empresarial (PJ) sem separação ou otimização — custo tributário elevado.',
+    'comportamento': 'Comportamento financeiro com pontos de atenção — decisões impulsivas ou adiadas.',
+  };
+  sorted.slice(0, 3).forEach(d => {
+    if (d.pct < 70 && gapMsgs[d.id]) {
+      gapsEl.innerHTML += `
+        <div class="gap-item">
+          <div class="gap-icon">!</div>
+          <div class="gap-text">${gapMsgs[d.id]}</div>
+        </div>
+      `;
+    }
+  });
+  if (!gapsEl.innerHTML) {
+    gapsEl.innerHTML = '<div class="gap-item"><div class="gap-text" style="color:var(--mg);font-weight:600">Parabéns — sua estrutura financeira está bem encaminhada. Há oportunidades de refinamento que podemos explorar juntos.</div></div>';
+  }
+
+  // WhatsApp com dados
+  const msg = encodeURIComponent(
+    `Olá Ivan, acabo de fazer o Diagnóstico Patrimonial 360° e obtive ${pctGeral} pontos de 100 (${nivel}). Gostaria de conversar sobre os próximos passos.`
+  );
+  document.getElementById('btn-wpp-result').href = `https://wa.me/5511979530555?text=${msg}`;
+
+  // ── ENVIO DE DADOS VIA FORMSUBMIT ──────────────────────────────────────
+  // Monta resumo completo de todas as respostas
+  const nomeCliente = document.getElementById('nome').value;
+  const wppCliente  = document.getElementById('wpp').value;
+  const emailCliente = document.getElementById('email').value;
+  const profissao   = document.getElementById('profissao').value;
+  const idade       = document.getElementById('idade').value;
+  const estadoCivil = document.getElementById('estado_civil').value;
+
+  // Montar texto de respostas por seção
+  let resumoRespostas = '';
+  secoes.forEach(sec => {
+    resumoRespostas += `\n== ${sec.titulo.toUpperCase()} ==\n`;
+    sec.questoes.forEach(q => {
+      if (q.tipo === 'texto') {
+        const el = document.getElementById(q.id);
+        resumoRespostas += `${q.texto}\nR: ${el ? el.value : '—'}\n\n`;
+      } else {
+        const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+        const opt = checked ? checked.closest('label').textContent.trim() : '(não respondido)';
+        resumoRespostas += `${q.texto}\nR: ${opt}\n\n`;
+      }
+    });
+  });
+
+  // Montar resumo de dimensões
+  let resumoDims = '\n== SCORES POR DIMENSÃO ==\n';
+  Object.values(dimScores).forEach(dim => {
+    if (dim.max === 0) return;
+    const pct = Math.round(dim.score / dim.max * 100);
+    resumoDims += `${dim.nome}: ${dim.score}/${dim.max} pts (${pct}%)\n`;
+  });
+
+  // Montar corpo do e-mail
+  const corpo = `
+NOVO DIAGNÓSTICO PATRIMONIAL 360° RECEBIDO
+===========================================
+Data/Hora: ${new Date().toLocaleString('pt-BR')}
+
+IDENTIFICAÇÃO DO CLIENTE
+Nome:         ${nomeCliente}
+WhatsApp:     ${wppCliente}
+E-mail:       ${emailCliente}
+Profissão:    ${profissao}
+Idade:        ${idade}
+Estado civil: ${estadoCivil}
+
+RESULTADO GERAL
+Score: ${pctGeral}/100 — ${nivel}
+${resumoDims}
+RESPOSTAS COMPLETAS
+${resumoRespostas}
+  `.trim();
+
+  // Enviar via FormSubmit (gratuito, sem configuração de servidor)
+  const formData = new FormData();
+  formData.append('_subject', `[Diagnóstico 360°] ${nomeCliente} — ${pctGeral}/100 pts (${nivel})`);
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'table');
+  formData.append('Nome', nomeCliente);
+  formData.append('WhatsApp', wppCliente);
+  formData.append('Email_cliente', emailCliente);
+  formData.append('Profissao', profissao);
+  formData.append('Idade', idade);
+  formData.append('Estado_civil', estadoCivil);
+  formData.append('Score_geral', `${pctGeral}/100`);
+  formData.append('Nivel', nivel);
+  formData.append('Resumo_dimensoes', resumoDims);
+  formData.append('Respostas_completas', resumoRespostas);
+
+  fetch('https://formsubmit.co/ivan.luiz@integraalianca.com.br', {
+    method: 'POST',
+    body: formData
+  }).catch(() => {}); // Silencioso — não bloqueia o resultado mesmo se falhar
+
+  // Mostrar resultado
+  const res = document.getElementById('resultado');
+  res.classList.add('show');
+  res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
