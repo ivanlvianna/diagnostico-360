@@ -1,0 +1,1408 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta name="description" content="Diagnóstico Saída da Desordem — Ivan Vianna CFP®. Para quem está começando, organizando ou saindo de dívidas. Cinco minutos, três passos concretos.">
+<meta property="og:title" content="Diagnóstico Saída da Desordem — Ivan Vianna CFP®">
+<meta property="og:description" content="Cinco minutos, cinco blocos. Seu estado financeiro atual e três passos concretos para começar esta semana.">
+<title>Diagnóstico saída da desordem — Ivan Vianna CFP®</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>(function(){ emailjs.init({ publicKey: "GxlNkG_E-JCLYn3uB" }); })();</script>
+
+<style>
+  :root {
+    --verde-1: #1A3C2E;
+    --verde-2: #2E5C46;
+    --verde-3: #0f2a20;
+    --dourado-base: #f8e38c;
+    --dourado-medio: #d7ae4d;
+    --dourado-gradient: linear-gradient(135deg, #f8e38c 0%, #f8e38c 30%, #d7ae4d 60%, #f8e38c 100%);
+    --branco: #FFFFFF;
+    --off-white: #F5F5F2;
+    --cinza-soft: rgba(245, 245, 242, 0.72);
+    --borda-soft: rgba(248, 227, 140, 0.18);
+    --borda-media: rgba(248, 227, 140, 0.32);
+    --vermelho: #c4564a;
+    --amarelo: #d7ae4d;
+    --verde-ok: #5fa777;
+    --laranja: #d7844d;
+    --radius-s: 6px;
+    --radius-m: 10px;
+    --radius-l: 18px;
+    --shadow-soft: 0 8px 40px rgba(0,0,0,0.35);
+    --display: "Fraunces", Georgia, serif;
+    --body: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--verde-3);
+    color: var(--off-white);
+    font-family: var(--body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  body {
+    background:
+      radial-gradient(ellipse at top right, rgba(215, 174, 77, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(46, 92, 70, 0.35) 0%, transparent 60%),
+      var(--verde-3);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  a { color: var(--dourado-base); }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 28px 22px 80px;
+  }
+  @media (min-width: 768px) {
+    .container { padding: 48px 32px 100px; }
+  }
+
+  .brand {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 18px; margin-bottom: 32px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--borda-soft);
+  }
+  .brand-mark {
+    display: flex; align-items: center; gap: 14px;
+    padding-left: 14px;
+    border-left: 2px solid var(--dourado-medio);
+  }
+  .brand-text { line-height: 1.3; }
+  .brand-name {
+    font-family: var(--display);
+    font-size: 1.05rem; font-weight: 500;
+    color: var(--off-white);
+  }
+  .brand-role {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--cinza-soft);
+    margin-top: 2px;
+  }
+  .brand-cta {
+    font-size: 0.78rem; font-weight: 700;
+    color: var(--dourado-base);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+  }
+  @media (max-width: 520px) {
+    .brand-cta { display: none; }
+  }
+
+  .progress-wrap {
+    margin-bottom: 28px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .progress-header {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--cinza-soft);
+  }
+  .progress-bar {
+    height: 4px; width: 100%;
+    background: rgba(245, 245, 242, 0.08);
+    border-radius: 999px; overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    position: absolute; top: 0; left: 0; height: 100%;
+    background: var(--dourado-gradient);
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 999px;
+  }
+
+  h1, h2, h3 { margin: 0; font-family: var(--display); }
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: italic;
+    background: var(--dourado-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dourado-base);
+    margin-bottom: 10px;
+  }
+
+  .lead {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--cinza-soft);
+    max-width: 62ch;
+  }
+  .section-kicker {
+    display: inline-block;
+    font-size: 0.70rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--dourado-base);
+    padding: 6px 12px;
+    border: 1px solid var(--borda-media);
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+
+  .card {
+    background: linear-gradient(180deg, rgba(46, 92, 70, 0.35) 0%, rgba(26, 60, 46, 0.35) 100%);
+    border: 1px solid var(--borda-soft);
+    border-radius: var(--radius-l);
+    padding: clamp(22px, 4vw, 36px);
+    margin-bottom: 22px;
+    backdrop-filter: blur(4px);
+  }
+
+  .screen { display: none; animation: fadeIn 0.4s ease; }
+  .screen.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .field { margin-bottom: 22px; }
+  .field:last-child { margin-bottom: 0; }
+  label, .field-label {
+    display: block;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--off-white);
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .field-hint {
+    font-size: 0.80rem; font-weight: 400;
+    color: var(--cinza-soft);
+    margin-top: 4px; margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+    width: 100%;
+    padding: 13px 15px;
+    background: rgba(15, 42, 32, 0.65);
+    border: 1px solid var(--borda-soft);
+    border-radius: var(--radius-m);
+    color: var(--off-white);
+    font-family: var(--body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: border-color 0.2s;
+  }
+  input:focus {
+    outline: none;
+    border-color: var(--dourado-medio);
+    background: rgba(15, 42, 32, 0.85);
+  }
+  input::placeholder { color: rgba(245, 245, 242, 0.35); }
+
+  .grid-2 {
+    display: grid; gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 620px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 15px 18px;
+    background: rgba(15, 42, 32, 0.55);
+    border: 1px solid var(--borda-soft);
+    border-radius: var(--radius-m);
+    cursor: pointer;
+    transition: all 0.18s;
+    line-height: 1.5;
+  }
+  .option:hover { border-color: var(--borda-media); background: rgba(15, 42, 32, 0.75); }
+  .option input { margin-top: 4px; cursor: pointer; flex-shrink: 0; accent-color: var(--dourado-base); }
+  .option.selected {
+    border-color: var(--dourado-medio);
+    background: linear-gradient(135deg, rgba(215, 174, 77, 0.15) 0%, rgba(46, 92, 70, 0.35) 100%);
+  }
+  .option-text {
+    font-size: 0.92rem; font-weight: 400;
+    color: var(--off-white); flex: 1;
+  }
+
+  .btn-row {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-top: 28px; align-items: center;
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-m);
+    font-family: var(--body);
+    font-size: 0.90rem; font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-decoration: none;
+    min-height: 48px;
+  }
+  .btn-primary {
+    background: var(--dourado-gradient);
+    color: var(--verde-1);
+    box-shadow: 0 4px 20px rgba(215, 174, 77, 0.25);
+  }
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 28px rgba(215, 174, 77, 0.35);
+  }
+  .btn-primary:disabled {
+    opacity: 0.45; cursor: not-allowed;
+    transform: none; box-shadow: none;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--off-white);
+    border-color: var(--borda-media);
+  }
+  .btn-ghost:hover { background: rgba(248, 227, 140, 0.06); }
+  .btn-full { width: 100%; }
+
+  .privacy {
+    font-size: 0.78rem;
+    color: var(--cinza-soft);
+    line-height: 1.6;
+    padding: 14px 16px;
+    background: rgba(15, 42, 32, 0.6);
+    border: 1px solid var(--borda-soft);
+    border-radius: var(--radius-m);
+    margin-top: 16px;
+  }
+  .privacy a { color: var(--dourado-base); }
+
+  .empathy-banner {
+    padding: 20px 22px;
+    background: linear-gradient(160deg, rgba(95, 167, 119, 0.10) 0%, rgba(46, 92, 70, 0.35) 100%);
+    border: 1px solid rgba(95, 167, 119, 0.30);
+    border-radius: var(--radius-m);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--off-white);
+    margin: 22px 0;
+  }
+  .empathy-banner strong { color: #9bc7a8; font-weight: 700; }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 30px;
+  }
+  @media (min-width: 640px) {
+    .feature-row { grid-template-columns: repeat(3, 1fr); }
+  }
+  .feature {
+    padding: 22px;
+    background: rgba(15, 42, 32, 0.45);
+    border: 1px solid var(--borda-soft);
+    border-radius: var(--radius-m);
+  }
+  .feature-num {
+    font-family: var(--display);
+    font-size: 1.85rem;
+    color: var(--dourado-base);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+  .feature-label {
+    font-size: 0.85rem; font-weight: 600;
+    color: var(--off-white);
+    margin-bottom: 6px;
+  }
+  .feature-desc {
+    font-size: 0.82rem;
+    color: var(--cinza-soft);
+    line-height: 1.55;
+  }
+
+  .deliverables {
+    background: linear-gradient(160deg, rgba(215, 174, 77, 0.10) 0%, rgba(26, 60, 46, 0.45) 100%);
+    border: 1px solid var(--borda-media);
+    border-radius: var(--radius-l);
+    padding: clamp(22px, 4vw, 32px);
+    margin-top: 32px;
+  }
+  .deliverables h3 {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    color: var(--off-white);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .deliverables-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 10px;
+  }
+  .deliverables-list li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--off-white);
+    align-items: start;
+  }
+  .deliverables-list li::before {
+    content: "→";
+    color: var(--dourado-base);
+    font-weight: 700;
+  }
+
+  .state-hero {
+    text-align: center;
+    padding: 20px 0 10px;
+  }
+  .state-name {
+    font-family: var(--display);
+    font-size: clamp(2.8rem, 10vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1;
+    margin: 16px 0 8px;
+  }
+  .state-sub {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid var(--borda-media);
+    border-radius: 999px;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--dourado-base);
+  }
+  .state-desc {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    max-width: 56ch;
+    margin: 22px auto 0;
+  }
+  .state-name.caos { color: #e38a80; }
+  .state-name.turbulencia { color: #ebaf83; }
+  .state-name.organizando { color: #f0d48a; }
+  .state-name.transicao { color: #9bc7a8; }
+
+  .steps-list {
+    list-style: none; padding: 0; margin: 14px 0 0;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    padding: 18px;
+    background: rgba(15, 42, 32, 0.55);
+    border-left: 3px solid var(--dourado-medio);
+    border-radius: 0 var(--radius-m) var(--radius-m) 0;
+    align-items: start;
+  }
+  .step-when {
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--dourado-base);
+    white-space: nowrap;
+    padding: 4px 10px;
+    background: rgba(215, 174, 77, 0.08);
+    border: 1px solid var(--borda-soft);
+    border-radius: 4px;
+    align-self: start;
+    margin-top: 2px;
+  }
+  .step-body {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--off-white);
+  }
+  .step-body strong { color: var(--dourado-base); font-weight: 700; }
+  @media (max-width: 560px) {
+    .step { grid-template-columns: 1fr; }
+  }
+
+  .product-rec {
+    padding: clamp(22px, 4vw, 32px);
+    background: linear-gradient(160deg, rgba(215, 174, 77, 0.14) 0%, rgba(26, 60, 46, 0.50) 100%);
+    border: 1px solid var(--borda-media);
+    border-radius: var(--radius-l);
+    margin-top: 22px;
+  }
+  .product-rec h3 {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    color: var(--off-white);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .product-rec .product-name {
+    display: inline-block;
+    font-family: var(--display);
+    font-size: 1.2rem;
+    background: var(--dourado-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 500;
+    margin: 6px 0 10px;
+  }
+  .product-rec p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--off-white);
+    margin: 0;
+  }
+
+  .cta-wrap {
+    text-align: center;
+    margin-top: 36px;
+    padding: 30px 22px;
+    background: linear-gradient(160deg, rgba(215, 174, 77, 0.14) 0%, rgba(26, 60, 46, 0.50) 100%);
+    border: 1px solid var(--borda-media);
+    border-radius: var(--radius-l);
+  }
+  .cta-wrap h3 {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    color: var(--off-white);
+    margin-bottom: 12px;
+  }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 26px;
+    border-top: 1px solid var(--borda-soft);
+    text-align: center;
+    font-size: 0.76rem;
+    color: var(--cinza-soft);
+    line-height: 1.7;
+  }
+  footer strong { color: var(--off-white); font-weight: 600; }
+
+  .hidden { display: none !important; }
+  .mt-s { margin-top: 16px; }
+  .mt-m { margin-top: 26px; }
+  .muted { color: var(--cinza-soft); }
+  .text-center { text-align: center; }
+
+  .consent {
+    position: fixed; inset: 0;
+    background: rgba(15, 42, 32, 0.94);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: grid; place-items: center;
+    padding: 20px;
+  }
+  .consent-card {
+    max-width: 520px;
+    background: var(--verde-1);
+    border: 1px solid var(--borda-media);
+    border-radius: var(--radius-l);
+    padding: 32px 28px;
+    box-shadow: var(--shadow-soft);
+  }
+  .consent-card h3 {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    color: var(--off-white);
+    margin-bottom: 14px;
+  }
+  .consent-card p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--cinza-soft);
+    margin: 0 0 14px;
+  }
+  .consent-card a {
+    color: var(--dourado-base);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .consent-check {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin: 16px 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .consent-check input { margin-top: 3px; accent-color: var(--dourado-base); }
+
+  .bridge-link {
+    display: block;
+    text-align: center;
+    margin-top: 28px;
+    padding: 12px 16px;
+    font-size: 0.82rem;
+    color: var(--cinza-soft);
+    border: 1px dashed var(--borda-soft);
+    border-radius: var(--radius-m);
+    text-decoration: none;
+  }
+  .bridge-link:hover { border-color: var(--borda-media); color: var(--off-white); }
+  .bridge-link strong { color: var(--dourado-base); }
+
+  @media (max-width: 480px) {
+    .btn-row { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="consent" id="consent">
+  <div class="consent-card">
+    <h3>Antes de começar</h3>
+    <p>Este diagnóstico é confidencial. Seus dados são usados exclusivamente pelo planejador CFP® Ivan Vianna para preparar uma orientação para você — e nada mais.</p>
+    <p>Tratamento em conformidade com a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018). Você pode solicitar acesso, correção ou exclusão pelo e-mail <a href="mailto:ivan.luiz@integraalianca.com.br">ivan.luiz@integraalianca.com.br</a>.</p>
+    <label class="consent-check">
+      <input type="checkbox" id="consent-agree">
+      <span>Li e concordo com o tratamento dos meus dados para a finalidade acima.</span>
+    </label>
+    <button class="btn btn-primary btn-full" id="consent-btn" disabled>Iniciar diagnóstico</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <header class="brand">
+    <div class="brand-mark">
+      <div class="brand-text">
+        <div class="brand-name">Ivan Vianna · CFP®</div>
+        <div class="brand-role">Finanças pessoais e empresariais</div>
+      </div>
+    </div>
+    <a href="https://wa.me/5511979530555" class="brand-cta" target="_blank" rel="noopener">Falar agora →</a>
+  </header>
+
+  <div class="progress-wrap" id="progress-wrap" style="display: none;">
+    <div class="progress-header">
+      <span id="progress-label">Etapa</span>
+      <span id="progress-stage">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <!-- ================= Intro ================= -->
+  <section class="screen active" id="screen-intro">
+    <span class="section-kicker">Diagnóstico de saída da desordem</span>
+    <h1>Sair da desordem começa com <em>honestidade sobre os números.</em></h1>
+
+    <p class="lead mt-s">
+      Este diagnóstico é para quem sente que precisa organizar a vida financeira — com ou sem dívidas, com ou sem reserva, com ou sem plano. Aqui você olha sua situação real, sem julgamento, e sai com três passos concretos para começar esta semana.
+    </p>
+
+    <div class="empathy-banner">
+      <strong>Aviso importante.</strong> Este diagnóstico não é teste nem julgamento. A maioria das pessoas que chegam aqui está em um dos quatro estados possíveis — e todos têm saída. A diferença está em ter o mapa, o plano e o próximo passo claro.
+    </div>
+
+    <div class="feature-row">
+      <div class="feature">
+        <div class="feature-num">5</div>
+        <div class="feature-label">Minutos</div>
+        <div class="feature-desc">Quinze perguntas diretas. Sem jargão financeiro, sem julgamento.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-num">4</div>
+        <div class="feature-label">Estados possíveis</div>
+        <div class="feature-desc">Caos, Turbulência, Organizando ou Em transição. Todos têm saída mapeada.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-num">3</div>
+        <div class="feature-label">Passos concretos</div>
+        <div class="feature-desc">Esta semana, este mês e próximos 90 dias. Ação imediata, não conceito.</div>
+      </div>
+    </div>
+
+    <div class="deliverables">
+      <h3>Ao final, você recebe</h3>
+      <ul class="deliverables-list">
+        <li>Seu estado financeiro atual, sem rodeios — onde você está hoje</li>
+        <li>As três ações mais importantes para começar: esta semana, este mês e nos próximos 90 dias</li>
+        <li>A recomendação de material ou conversa mais coerente com seu momento</li>
+        <li>Cópia em PDF enviada ao seu WhatsApp</li>
+      </ul>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="app.goTo('identification')">Começar agora</button>
+    </div>
+
+    <div class="privacy">
+      Seus dados são usados exclusivamente na preparação da sua orientação. Sem compartilhamento com terceiros. LGPD cumprida integralmente.
+    </div>
+
+    <a class="bridge-link" href="./diagnostico-360-v2.html">
+      Já tem patrimônio estruturado? <strong>Faça o Diagnóstico Patrimonial 360° →</strong>
+    </a>
+  </section>
+
+  <!-- ================= Identification ================= -->
+  <section class="screen" id="screen-identification">
+    <div class="card">
+      <h2>Primeiro, sua identificação</h2>
+      <p class="muted" style="font-size: 0.90rem; margin-top: 0;">Só três campos. A cópia do diagnóstico vai para o seu WhatsApp.</p>
+
+      <div class="grid-2 mt-m">
+        <div class="field">
+          <label for="f-name">Seu nome *</label>
+          <input type="text" id="f-name" autocomplete="name" placeholder="Como você prefere ser chamado">
+        </div>
+        <div class="field">
+          <label for="f-whatsapp">WhatsApp *</label>
+          <input type="tel" id="f-whatsapp" placeholder="(11) 99999-9999" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="f-email">E-mail (opcional)</label>
+          <input type="email" id="f-email" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="f-age">Idade (opcional)</label>
+          <input type="number" id="f-age" min="18" max="100">
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="app.goTo('intro')">Voltar</button>
+        <button class="btn btn-primary" onclick="app.fromIdentification()">Continuar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Block 1 · Reality ================= -->
+  <section class="screen" id="screen-reality">
+    <span class="section-kicker">Bloco 1 de 5 · Sua realidade atual</span>
+    <h2>Vamos começar pelo começo</h2>
+    <p class="lead">Quatro perguntas diretas sobre onde você está hoje, financeiramente.</p>
+    <div id="reality-container" class="mt-m"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="app.goToPrev()">Voltar</button>
+      <button class="btn btn-primary" id="reality-next" onclick="app.nextFromScreen('reality', 'behavior')" disabled>Continuar</button>
+    </div>
+  </section>
+
+  <!-- ================= Block 2 · Behavior ================= -->
+  <section class="screen" id="screen-behavior">
+    <span class="section-kicker">Bloco 2 de 5 · Seu comportamento</span>
+    <h2>Como você se relaciona com dinheiro</h2>
+    <p class="lead">Três perguntas sobre hábitos e padrões. Responder honesto aqui economiza meses de conversa depois.</p>
+    <div id="behavior-container" class="mt-m"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="app.goToPrev()">Voltar</button>
+      <button class="btn btn-primary" id="behavior-next" onclick="app.nextFromScreen('behavior', 'structure')" disabled>Continuar</button>
+    </div>
+  </section>
+
+  <!-- ================= Block 3 · Structure ================= -->
+  <section class="screen" id="screen-structure">
+    <span class="section-kicker">Bloco 3 de 5 · Sua estrutura atual</span>
+    <h2>O que você já tem montado</h2>
+    <div id="structure-container" class="mt-m"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="app.goToPrev()">Voltar</button>
+      <button class="btn btn-primary" id="structure-next" onclick="app.nextFromScreen('structure', 'pressure')" disabled>Continuar</button>
+    </div>
+  </section>
+
+  <!-- ================= Block 4 · Pressure ================= -->
+  <section class="screen" id="screen-pressure">
+    <span class="section-kicker">Bloco 4 de 5 · O que está pressionando</span>
+    <h2>Suas preocupações agora</h2>
+    <p class="lead">Isso não aparece na planilha, mas define urgência.</p>
+    <div id="pressure-container" class="mt-m"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="app.goToPrev()">Voltar</button>
+      <button class="btn btn-primary" id="pressure-next" onclick="app.nextFromScreen('pressure', 'intention')" disabled>Continuar</button>
+    </div>
+  </section>
+
+  <!-- ================= Block 5 · Intention ================= -->
+  <section class="screen" id="screen-intention">
+    <span class="section-kicker">Bloco 5 de 5 · Sua intenção</span>
+    <h2>O que você quer fazer a partir daqui</h2>
+    <div id="intention-container" class="mt-m"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="app.goToPrev()">Voltar</button>
+      <button class="btn btn-primary" id="intention-next" onclick="app.computeResult()" disabled>Ver meu diagnóstico</button>
+    </div>
+  </section>
+
+  <!-- ================= Result ================= -->
+  <section class="screen" id="screen-result">
+    <div class="state-hero">
+      <span class="section-kicker">Seu estado financeiro atual</span>
+      <div class="state-name" id="state-name">—</div>
+      <div class="state-sub" id="state-sub">—</div>
+      <p class="state-desc" id="state-desc">—</p>
+    </div>
+
+    <div class="card">
+      <h3>Seus três passos</h3>
+      <p class="muted" style="font-size: 0.88rem; margin-top: 0;">Cada passo é concreto e executável. Não é conceito, é ação.</p>
+      <ul class="steps-list" id="result-steps"></ul>
+    </div>
+
+    <div class="product-rec" id="product-rec"></div>
+
+    <div class="cta-wrap">
+      <h3 id="cta-title">Próximo passo</h3>
+      <p id="cta-desc" style="font-size: 0.95rem; color: var(--cinza-soft); max-width: 52ch; margin: 0 auto 22px;"></p>
+      <div class="btn-row" style="justify-content: center;">
+        <a class="btn btn-primary" id="cta-whatsapp" href="#" target="_blank" rel="noopener"></a>
+        <a class="btn btn-ghost" id="cta-secondary" href="#" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+
+    <p class="muted text-center mt-m" style="font-size: 0.80rem;">
+      Diagnóstico enviado automaticamente para o planejador. Você receberá a cópia completa em PDF no WhatsApp informado.
+    </p>
+  </section>
+
+  <footer>
+    <strong>Ivan Vianna · CFP®</strong> — finanças pessoais e empresariais · CNPJ 56.099.913/0001-61<br>
+    (11) 97953-0555 · ivan.luiz@integraalianca.com.br<br>
+    Diagnóstico educacional · não constitui recomendação de investimento · informações confidenciais
+  </footer>
+
+</div>
+
+<script>
+/* =========================================================================
+   Diagnóstico Saída da Desordem · v1.0
+   Produto de entrada · tom acolhedor · 15 perguntas em 5 blocos
+   ========================================================================= */
+
+const STATE = {
+  currentScreen: "intro",
+  history: [],
+  identification: {},
+  answers: {}
+};
+
+const QUESTIONS = {
+  reality: [
+    {
+      id: "r_debt_know",
+      type: "single",
+      text: "Você sabe exatamente quanto você deve hoje — somando tudo?",
+      hint: "Cartão, empréstimo, financiamento, cheque especial, parcelamentos. Tudo.",
+      weight: 3,
+      options: [
+        { value: 3, label: "Sim, tenho o número exato atualizado" },
+        { value: 2, label: "Tenho uma ideia aproximada" },
+        { value: 1, label: "Sei alguns, mas não sei o total" },
+        { value: 0, label: "Não, nunca parei para calcular isso" },
+        { value: 3, label: "Não tenho dívidas" }
+      ]
+    },
+    {
+      id: "r_income_cover",
+      type: "single",
+      text: "Sua renda cobre todas as suas despesas do mês?",
+      weight: 3,
+      options: [
+        { value: 3, label: "Sempre — e ainda sobra" },
+        { value: 2, label: "Sim, mas sem sobrar quase nada" },
+        { value: 1, label: "Na maioria dos meses, mas nem sempre" },
+        { value: 0, label: "Raramente — quase sempre fica faltando" }
+      ]
+    },
+    {
+      id: "r_late_bills",
+      type: "single",
+      text: "Nos últimos 3 meses, quantas contas você atrasou?",
+      weight: 3,
+      options: [
+        { value: 3, label: "Nenhuma" },
+        { value: 2, label: "Uma ou outra" },
+        { value: 1, label: "Algumas" },
+        { value: 0, label: "Várias" },
+        { value: 0, label: "Muitas — atraso virou padrão" }
+      ]
+    },
+    {
+      id: "r_high_interest",
+      type: "single",
+      text: "Você tem dívidas caras — cartão rotativo, cheque especial, empréstimo pessoal?",
+      hint: "São os juros mais destrutivos do mercado. Identificar aqui já ajuda muito.",
+      weight: 3,
+      options: [
+        { value: 3, label: "Não tenho" },
+        { value: 2, label: "Pequenas, estou controlando" },
+        { value: 1, label: "Tenho e são significativas" },
+        { value: 0, label: "Tenho e estão crescendo" }
+      ]
+    }
+  ],
+
+  behavior: [
+    {
+      id: "b_check_freq",
+      type: "single",
+      text: "Com que frequência você olha seus extratos bancários e faturas?",
+      weight: 3,
+      options: [
+        { value: 3, label: "Toda semana ou mais" },
+        { value: 2, label: "Mensalmente" },
+        { value: 1, label: "De vez em quando" },
+        { value: 0, label: "Evito olhar" }
+      ]
+    },
+    {
+      id: "b_tried_before",
+      type: "single",
+      text: "Você já tentou se organizar financeiramente antes?",
+      weight: 2,
+      options: [
+        { value: 2, label: "Sim, e mantenho até hoje" },
+        { value: 1, label: "Sim, mas não consegui manter" },
+        { value: 1, label: "Sim, várias vezes, sempre abandonei" },
+        { value: 1, label: "Nunca tentei de verdade" }
+      ]
+    },
+    {
+      id: "b_blocker",
+      type: "single",
+      text: "O que mais te trava para dar o primeiro passo?",
+      hint: "Não há resposta certa. Essa pergunta ajusta o tom da orientação.",
+      options: [
+        { value: "comecar", label: "Não sei por onde começar" },
+        { value: "disciplina", label: "Falta de disciplina ou constância" },
+        { value: "renda", label: "Renda insuficiente para sobrar qualquer coisa" },
+        { value: "verguiha", label: "Vergonha ou desânimo com a situação atual" },
+        { value: "tempo", label: "Falta de tempo ou prioridade" },
+        { value: "parceiro", label: "Parceiro(a) ou família não colabora" }
+      ]
+    }
+  ],
+
+  structure: [
+    {
+      id: "s_expense_control",
+      type: "single",
+      text: "Você tem algum tipo de controle de gastos (planilha, app, caderno)?",
+      weight: 3,
+      options: [
+        { value: 3, label: "Sim, atualizado e uso diariamente" },
+        { value: 2, label: "Sim, atualizo ao menos uma vez por mês" },
+        { value: 1, label: "Tentei, mas não mantenho" },
+        { value: 0, label: "Não tenho" }
+      ]
+    },
+    {
+      id: "s_reserve",
+      type: "single",
+      text: "Você tem algum dinheiro separado para imprevistos?",
+      hint: "Reserva de emergência. Mesmo pequena, conta.",
+      weight: 3,
+      options: [
+        { value: 3, label: "Sim, o suficiente para 3 meses ou mais" },
+        { value: 2, label: "Sim, entre 1 e 3 meses de despesas" },
+        { value: 1, label: "Muito pouco, menos de 1 mês" },
+        { value: 0, label: "Nada separado" }
+      ]
+    },
+    {
+      id: "s_credit_card",
+      type: "single",
+      text: "Quando chega a fatura do cartão de crédito, você paga:",
+      weight: 4,
+      options: [
+        { value: 4, label: "Sempre o valor total" },
+        { value: 3, label: "Quase sempre o valor total" },
+        { value: 2, label: "Às vezes parcelo ou pago o mínimo" },
+        { value: 1, label: "Frequentemente pago só o mínimo" },
+        { value: 0, label: "Sempre pago só o mínimo ou menos" }
+      ]
+    },
+    {
+      id: "s_income_stability",
+      type: "single",
+      text: "Sua renda é previsível de um mês para o outro?",
+      weight: 2,
+      options: [
+        { value: 2, label: "Sim, renda fixa estável (CLT, servidor)" },
+        { value: 2, label: "Renda fixa com alguma variação (bônus, PLR)" },
+        { value: 1, label: "Variável mas com base estável (autônomo com carteira fixa)" },
+        { value: 0, label: "Muito variável — nunca sei o que vou receber" }
+      ]
+    }
+  ],
+
+  pressure: [
+    {
+      id: "p_worry",
+      type: "multi",
+      text: "O que mais te preocupa hoje?",
+      hint: "Marque quantas opções se aplicarem.",
+      options: [
+        { value: "dividas", label: "Dívidas que não param de crescer" },
+        { value: "sobrar", label: "Não conseguir fazer sobrar nada no fim do mês" },
+        { value: "futuro", label: "Medo do futuro — aposentadoria, velhice" },
+        { value: "familia", label: "Não conseguir sustentar ou ajudar a família" },
+        { value: "controle", label: "Sensação de não ter controle sobre nada" },
+        { value: "renda", label: "Risco de perder emprego ou a renda" },
+        { value: "educacao", label: "Futuro educacional dos filhos" }
+      ]
+    },
+    {
+      id: "p_urgency",
+      type: "single",
+      text: "Qual a urgência disso tudo para você?",
+      options: [
+        { value: "extrema", label: "Extrema — está me tirando o sono" },
+        { value: "muita", label: "Muita — incomoda todos os dias" },
+        { value: "alguma", label: "Alguma — me preocupa mas não paralisa" },
+        { value: "pouca", label: "Pouca — quero só entender melhor" }
+      ]
+    }
+  ],
+
+  intention: [
+    {
+      id: "i_resolve_now",
+      type: "single",
+      text: "Você quer começar a resolver isso agora?",
+      options: [
+        { value: "pronto", label: "Sim, estou pronto para agir" },
+        { value: "ajuda", label: "Sim, mas preciso de ajuda ou direcionamento" },
+        { value: "depois", label: "Sim, mas não agora — talvez em algumas semanas" },
+        { value: "pensando", label: "Ainda estou avaliando se é o momento" }
+      ]
+    },
+    {
+      id: "i_timeline",
+      type: "single",
+      text: "Em quanto tempo você gostaria de estar em uma situação financeira mais controlada?",
+      options: [
+        { value: "3m", label: "Em 3 meses" },
+        { value: "6m", label: "Em 6 meses" },
+        { value: "1a", label: "Em até 1 ano" },
+        { value: "longo", label: "Mais tempo, sem pressa" },
+        { value: "naoSei", label: "Não sei, preciso de clareza primeiro" }
+      ]
+    }
+  ]
+};
+
+const app = {
+
+  init() {
+    const consent = document.getElementById("consent");
+    const agree = document.getElementById("consent-agree");
+    const btn = document.getElementById("consent-btn");
+    agree.addEventListener("change", () => { btn.disabled = !agree.checked; });
+    btn.addEventListener("click", () => {
+      if (!agree.checked) return;
+      consent.style.display = "none";
+      document.getElementById("progress-wrap").style.display = "flex";
+    });
+
+    Object.keys(QUESTIONS).forEach(key => {
+      this.renderQuestions(key, QUESTIONS[key], `${key}-container`);
+    });
+  },
+
+  renderQuestions(screenKey, list, containerId) {
+    const c = document.getElementById(containerId);
+    if (!c) return;
+    list.forEach(q => {
+      const block = document.createElement("div");
+      block.className = "card";
+      block.dataset.qid = q.id;
+      block.innerHTML = this.questionHTML(q);
+      c.appendChild(block);
+    });
+    c.addEventListener("click", e => this.onInteraction(e, screenKey));
+    c.addEventListener("change", e => this.onInteraction(e, screenKey));
+  },
+
+  questionHTML(q) {
+    let body = "";
+    if (q.type === "single") {
+      body = `<div class="options">${q.options.map((o, i) => `
+        <label class="option" data-qid="${q.id}" data-optidx="${i}">
+          <input type="radio" name="${q.id}" value="${i}">
+          <span class="option-text">${o.label}</span>
+        </label>`).join("")}</div>`;
+    } else if (q.type === "multi") {
+      body = `<div class="options">${q.options.map((o, i) => `
+        <label class="option" data-qid="${q.id}" data-optidx="${i}">
+          <input type="checkbox" name="${q.id}" value="${i}">
+          <span class="option-text">${o.label}</span>
+        </label>`).join("")}</div>`;
+    }
+    return `
+      <div class="field-label">${q.text}</div>
+      ${q.hint ? `<div class="field-hint">${q.hint}</div>` : ""}
+      ${body}
+    `;
+  },
+
+  onInteraction(e, screenKey) {
+    const t = e.target;
+    if (t.tagName !== "INPUT") return;
+    const qid = t.name;
+    if (!qid) return;
+    const q = this.findQuestion(qid);
+    if (!q) return;
+    const label = t.closest("label");
+    if (t.type === "radio") {
+      label.parentElement.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
+      label.classList.add("selected");
+      STATE.answers[qid] = parseInt(t.value, 10);
+    } else if (t.type === "checkbox") {
+      label.classList.toggle("selected", t.checked);
+      const all = label.parentElement.querySelectorAll("input[type=checkbox]");
+      const values = [];
+      all.forEach(inp => { if (inp.checked) values.push(parseInt(inp.value, 10)); });
+      STATE.answers[qid] = values;
+    }
+    this.updateNextButton(screenKey);
+  },
+
+  findQuestion(qid) {
+    for (const k of Object.keys(QUESTIONS)) {
+      const f = QUESTIONS[k].find(q => q.id === qid);
+      if (f) return f;
+    }
+    return null;
+  },
+
+  updateNextButton(screenKey) {
+    const btn = document.getElementById(`${screenKey}-next`);
+    if (!btn) return;
+    const list = QUESTIONS[screenKey] || [];
+    let ok = true;
+    list.forEach(q => {
+      const a = STATE.answers[q.id];
+      if (a === undefined || a === null || (Array.isArray(a) && a.length === 0)) ok = false;
+    });
+    btn.disabled = !ok;
+  },
+
+  goTo(screen) {
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    const el = document.getElementById(`screen-${screen}`);
+    if (!el) return;
+    if (STATE.currentScreen !== screen) STATE.history.push(STATE.currentScreen);
+    STATE.currentScreen = screen;
+    el.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    this.updateProgress();
+    const btn = document.getElementById(`${screen}-next`);
+    if (btn) this.updateNextButton(screen);
+  },
+
+  goToPrev() {
+    if (STATE.history.length === 0) return;
+    const prev = STATE.history.pop();
+    STATE.currentScreen = prev;
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    document.getElementById(`screen-${prev}`).classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    this.updateProgress();
+  },
+
+  nextFromScreen(current, next) { this.goTo(next); },
+
+  updateProgress() {
+    const flow = ["intro", "identification", "reality", "behavior", "structure", "pressure", "intention", "result"];
+    const idx = flow.indexOf(STATE.currentScreen);
+    const pct = idx >= 0 ? Math.round((idx / (flow.length - 1)) * 100) : 0;
+    document.getElementById("progress-fill").style.width = pct + "%";
+    const map = {
+      "intro": "Início", "identification": "Identificação",
+      "reality": "Bloco 1 · Realidade", "behavior": "Bloco 2 · Comportamento",
+      "structure": "Bloco 3 · Estrutura", "pressure": "Bloco 4 · Pressão",
+      "intention": "Bloco 5 · Intenção", "result": "Seu diagnóstico"
+    };
+    document.getElementById("progress-label").textContent = map[STATE.currentScreen] || "Etapa";
+    document.getElementById("progress-stage").textContent = pct + "%";
+  },
+
+  fromIdentification() {
+    const name = document.getElementById("f-name").value.trim();
+    const wa = document.getElementById("f-whatsapp").value.trim();
+    if (!name || !wa) {
+      alert("Por favor preencha pelo menos nome e WhatsApp.");
+      return;
+    }
+    STATE.identification = {
+      name,
+      whatsapp: wa,
+      email: document.getElementById("f-email").value.trim(),
+      age: document.getElementById("f-age").value.trim()
+    };
+    this.goTo("reality");
+  },
+
+  /* ============ Scoring ============ */
+  computeScore() {
+    let raw = 0, maxRaw = 0;
+    const scored = ["reality", "behavior", "structure"];
+    scored.forEach(block => {
+      QUESTIONS[block].forEach(q => {
+        if (!q.weight) return;
+        const ans = STATE.answers[q.id];
+        if (ans === undefined) return;
+        if (q.type === "single") {
+          const opt = q.options[ans];
+          if (!opt || typeof opt.value !== "number") return;
+          const maxV = Math.max(...q.options.map(o => typeof o.value === "number" ? o.value : 0));
+          if (maxV > 0) {
+            raw += (opt.value / maxV) * q.weight;
+            maxRaw += q.weight;
+          }
+        }
+      });
+    });
+    const pct = maxRaw > 0 ? (raw / maxRaw) * 100 : 0;
+    return Math.round(pct);
+  },
+
+  determineState(score) {
+    if (score < 25) return "caos";
+    if (score < 50) return "turbulencia";
+    if (score < 75) return "organizando";
+    return "transicao";
+  },
+
+  /* ============ Result rendering ============ */
+  sendLeadData(score, state) {
+    const id = STATE.identification || {};
+    const stateLabels = { caos: "Caos", turbulencia: "Turbulência", organizando: "Organizando", transicao: "Em transição" };
+    const allAnswers = Object.entries(STATE.answers || {})
+      .map(([k, v]) => `${k}: ${v}`)
+      .join(" | ");
+    emailjs.send("service_gk2o07o", "template_xwghgow", {
+      from_name:  id.name     || "(não informado)",
+      from_email: id.email    || "(não informado)",
+      whatsapp:   id.whatsapp || "(não informado)",
+      idade:      id.age      || "(não informado)",
+      score:      score + "/100",
+      estado:     stateLabels[state] || state,
+      respostas:  allAnswers,
+      message:    `Novo lead — Diagnóstico Essencial\n\nNome: ${id.name}\nWhatsApp: ${id.whatsapp}\nE-mail: ${id.email}\nIdade: ${id.age}\nScore: ${score}/100\nEstado: ${stateLabels[state]}\n\nRespostas:\n${allAnswers}`,
+      _subject:   `Lead Diagnóstico Essencial — ${id.name || "Anônimo"} · ${stateLabels[state]}`,
+    }).catch(err => console.warn("EmailJS erro:", err));
+  },
+
+  computeResult() {
+    const score = this.computeScore();
+    const state = this.determineState(score);
+    STATE.finalScore = score;
+    STATE.finalState = state;
+    this.sendLeadData(score, state);
+
+    const stateData = {
+      caos: {
+        name: "Caos",
+        sub: "Ponto de partida difícil, mas com saída",
+        desc: "Você está em um momento em que a pressão financeira é real e diária. Isso não é julgamento — é diagnóstico. Muita gente passou exatamente por onde você está. A saída começa pela honestidade com os números e por três ações muito concretas."
+      },
+      turbulencia: {
+        name: "Turbulência",
+        sub: "Há risco, mas há caminho",
+        desc: "Você não está no pior cenário, mas também não está tranquilo. Há sinais amarelos — dívidas não controladas, reserva insuficiente, controle intermitente. A boa notícia é que com três meses de disciplina focada, seu estado muda de categoria."
+      },
+      organizando: {
+        name: "Organizando",
+        sub: "Estrutura básica em construção",
+        desc: "Você já tem parte das fundações montadas. Controla os gastos, tem alguma reserva, as dívidas estão sob controle. Agora é evolução — consolidar o que existe e começar a construir o próximo nível."
+      },
+      transicao: {
+        name: "Em transição",
+        sub: "Pronto para o próximo nível",
+        desc: "Sua base financeira está estruturada. Controle, reserva e organização estão funcionando. Você está no ponto onde o Diagnóstico Patrimonial 360° faz sentido — é hora de pensar em arquitetura patrimonial, investimentos estruturados e os próximos dez anos."
+      }
+    };
+
+    const s = stateData[state];
+    document.getElementById("state-name").textContent = s.name;
+    document.getElementById("state-name").className = `state-name ${state}`;
+    document.getElementById("state-sub").textContent = s.sub;
+    document.getElementById("state-desc").textContent = s.desc;
+
+    this.renderSteps(state);
+    this.renderProductRec(state);
+    this.renderCTA(state);
+
+    this.goTo("result");
+  },
+
+  renderSteps(state) {
+    const steps = {
+      caos: [
+        { when: "Esta semana", text: "Liste <strong>todas as dívidas</strong> em uma planilha ou papel — valor total, taxa de juros, vencimento, credor. Sem esse mapa, não há saída. É o passo mais importante do mês." },
+        { when: "Este mês", text: "Identifique o <strong>\"dinheiro escondido\"</strong>: assinaturas esquecidas, gastos automáticos, repetições desnecessárias. Em 30 minutos você encontra entre R$ 50 e R$ 300 por mês." },
+        { when: "Próximos 90 dias", text: "Renegocie as <strong>duas dívidas mais caras</strong> (cartão rotativo ou cheque especial primeiro). Muitos credores aceitam descontos de 30% a 60% para pagamento à vista ou portabilidade para operação mais barata." }
+      ],
+      turbulencia: [
+        { when: "Esta semana", text: "Monte o <strong>mapa financeiro básico</strong>: renda líquida mensal, despesas fixas, despesas variáveis, dívidas. Tudo em um lugar só. Use planilha, caderno ou app — o formato importa menos que a consistência." },
+        { when: "Este mês", text: "Estabeleça <strong>corte de 15% a 25%</strong> nas três maiores despesas não essenciais. O objetivo não é sofrimento, é revelar para você mesmo quanto poder de decisão você tem sobre o próprio dinheiro." },
+        { when: "Próximos 90 dias", text: "Forme sua <strong>primeira reserva de 1 mês</strong> de despesas — não 6 meses ainda, 1 é meta realista e já muda radicalmente sua relação com imprevistos. Aplicação de alta liquidez (CDB, Tesouro Selic)." }
+      ],
+      organizando: [
+        { when: "Esta semana", text: "Escreva sua <strong>meta financeira de 12 meses</strong> com valor, prazo e aporte mensal necessário. Escrita no papel. Meta na cabeça não é meta — é desejo." },
+        { when: "Este mês", text: "Abra ou revise sua <strong>conta de investimentos</strong> (BTG, XP, Nubank, Rico). Comece ou amplie aporte regular, mesmo que pequeno — R$ 100, R$ 200 por mês. Consistência supera valor." },
+        { when: "Próximos 90 dias", text: "Amplie reserva para <strong>3 meses de despesas</strong> e estude os primeiros conceitos de investimento: renda fixa (CDB, Tesouro), fundos DI, e eventualmente fundos imobiliários." }
+      ],
+      transicao: [
+        { when: "Esta semana", text: "Faça o <strong>Diagnóstico Patrimonial 360°</strong> para mapear os próximos 10 anos. Sua base está montada — agora é hora de pensar em arquitetura, não em sobrevivência." },
+        { when: "Este mês", text: "Estabeleça <strong>aporte regular de 10% a 15%</strong> da renda em carteira estruturada (renda fixa de qualidade + fundos + primeira exposição a ações ou FIIs). Automatizado, não opcional." },
+        { when: "Próximos 90 dias", text: "Estruture sua <strong>primeira previdência privada</strong> (VGBL ou PGBL conforme regime fiscal) e contrate seguro de vida básico. É o começo real da arquitetura patrimonial." }
+      ]
+    };
+
+    const ul = document.getElementById("result-steps");
+    ul.innerHTML = "";
+    steps[state].forEach(step => {
+      const li = document.createElement("li");
+      li.className = "step";
+      li.innerHTML = `
+        <span class="step-when">${step.when}</span>
+        <div class="step-body">${step.text}</div>
+      `;
+      ul.appendChild(li);
+    });
+  },
+
+  renderProductRec(state) {
+    const urgencyAns = STATE.answers["p_urgency"];
+    const urgencyOpt = QUESTIONS.pressure.find(q => q.id === "p_urgency").options[urgencyAns];
+    const urgency = urgencyOpt ? urgencyOpt.value : "alguma";
+
+    const recommendations = {
+      caos: {
+        title: "O que faz mais sentido para você agora",
+        product: "Conversa direta com o Ivan",
+        text: "Seu momento pede atenção personalizada, não autoatendimento. Uma conversa de 30 minutos (gratuita, sem pitch) para mapear sua situação e identificar as duas ou três ações mais urgentes. O diagnóstico que você acabou de fazer já é matéria-prima para essa conversa."
+      },
+      turbulencia: {
+        title: "O que faz mais sentido para você agora",
+        product: "eBook Desendivida + conversa",
+        text: "O eBook Desendivida foi construído exatamente para seu momento — estratégias práticas de renegociação e organização de dívidas. Combinado com uma conversa de 30 minutos, você sai com plano claro. Cadastre-se na comunidade e eu encaminho o material."
+      },
+      organizando: {
+        title: "O que faz mais sentido para você agora",
+        product: "Curso Do Zero ao Investidor",
+        text: "Você está no ponto em que conhecimento estruturado vale mais que consultoria pontual. O curso Do Zero ao Investidor leva você de onde está até investidor iniciante de forma progressiva, com comunidade de apoio. É o passo seguinte natural."
+      },
+      transicao: {
+        title: "O próximo passo natural",
+        product: "Diagnóstico Patrimonial 360°",
+        text: "Você já tem base organizada. O Diagnóstico 360° avalia sua arquitetura patrimonial completa — investimentos, proteção, previdência, sucessório — e gera um plano de três níveis (essencial, estratégico, avançado). É onde a construção de patrimônio sério começa."
+      }
+    };
+
+    const r = recommendations[state];
+    document.getElementById("product-rec").innerHTML = `
+      <h3>${r.title}</h3>
+      <div class="product-name">${r.product}</div>
+      <p>${r.text}</p>
+    `;
+  },
+
+  renderCTA(state) {
+    const name = STATE.identification.name || "";
+    const resolveNowIdx = STATE.answers["i_resolve_now"];
+    const resolveNowOpt = QUESTIONS.intention.find(q => q.id === "i_resolve_now").options[resolveNowIdx];
+    const wantsHelp = resolveNowOpt && (resolveNowOpt.value === "pronto" || resolveNowOpt.value === "ajuda");
+
+    const ctaMap = {
+      caos: {
+        title: "Vamos conversar ainda esta semana",
+        desc: "Seu momento pede ação rápida. Conversa de 30 minutos, gratuita, sem pitch de produto. Vamos mapear juntos sua situação e definir os três movimentos mais importantes para os próximos 30 dias.",
+        primary: "Me chamar no WhatsApp",
+        msgPrimary: `Olá Ivan. Sou ${name}. Fiz o Diagnóstico Saída da Desordem e meu estado é Caos. Gostaria de conversar com urgência.`,
+        secondaryLabel: "Enviar e-mail",
+        secondaryType: "email"
+      },
+      turbulencia: {
+        title: "Quer ajuda para destravar?",
+        desc: "Posso te enviar o eBook Desendivida e agendar uma conversa de 30 minutos. Sem pitch, sem empurro de produto. Só para a gente conversar sobre o seu momento e definir o plano.",
+        primary: wantsHelp ? "Agendar conversa no WhatsApp" : "Me chamar no WhatsApp",
+        msgPrimary: `Olá Ivan. Sou ${name}. Fiz o Diagnóstico Saída da Desordem e meu estado é Turbulência. ${wantsHelp ? "Gostaria de agendar uma conversa e receber o eBook Desendivida." : "Gostaria de receber o eBook Desendivida e entender o próximo passo."}`,
+        secondaryLabel: "Enviar e-mail",
+        secondaryType: "email"
+      },
+      organizando: {
+        title: "O próximo passo é conhecimento estruturado",
+        desc: "Você está no ponto em que um curso bem feito acelera mais que uma consultoria pontual. Posso te apresentar o Do Zero ao Investidor e, se quiser, agendar uma conversa de 30 minutos para desenhar seu plano de estudos.",
+        primary: "Conhecer o curso Do Zero ao Investidor",
+        msgPrimary: `Olá Ivan. Sou ${name}. Fiz o Diagnóstico Saída da Desordem e meu estado é Organizando. Gostaria de conhecer o curso Do Zero ao Investidor.`,
+        secondaryLabel: "Agendar conversa",
+        secondaryType: "conversation"
+      },
+      transicao: {
+        title: "Hora de subir o nível",
+        desc: "Sua base está montada. O próximo passo natural é o Diagnóstico Patrimonial 360°, que avalia sete dimensões da sua arquitetura e gera um plano em três horizontes (30 dias, 90 dias, 12 meses). É onde a construção de patrimônio sério começa.",
+        primary: "Fazer o Diagnóstico 360°",
+        msgPrimary: `Olá Ivan. Sou ${name}. Fiz o Diagnóstico Saída da Desordem e meu estado é Em Transição. Pretendo fazer o Diagnóstico 360° — pode me encaminhar?`,
+        secondaryLabel: "Me chamar no WhatsApp",
+        secondaryType: "whatsapp"
+      }
+    };
+
+    const c = ctaMap[state];
+    document.getElementById("cta-title").textContent = c.title;
+    document.getElementById("cta-desc").textContent = c.desc;
+
+    const primaryBtn = document.getElementById("cta-whatsapp");
+    primaryBtn.textContent = c.primary;
+
+    if (state === "transicao") {
+      // Primary: link direto ao 360° + mensagem ao WhatsApp
+      primaryBtn.href = "./diagnostico-360-v2.html";
+      primaryBtn.target = "_self";
+    } else {
+      primaryBtn.href = `https://wa.me/5511979530555?text=${encodeURIComponent(c.msgPrimary)}`;
+      primaryBtn.target = "_blank";
+    }
+
+    const secondary = document.getElementById("cta-secondary");
+    secondary.textContent = c.secondaryLabel;
+    if (c.secondaryType === "email") {
+      secondary.href = `mailto:ivan.luiz@integraalianca.com.br?subject=${encodeURIComponent("Diagnóstico Saída da Desordem")}&body=${encodeURIComponent(c.msgPrimary)}`;
+      secondary.target = "_self";
+    } else if (c.secondaryType === "conversation") {
+      secondary.href = `https://wa.me/5511979530555?text=${encodeURIComponent(`Olá Ivan. Sou ${name}. Fiz o Diagnóstico Saída da Desordem e gostaria de agendar uma conversa.`)}`;
+      secondary.target = "_blank";
+    } else {
+      secondary.href = `https://wa.me/5511979530555?text=${encodeURIComponent(c.msgPrimary)}`;
+      secondary.target = "_blank";
+    }
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => app.init());
+</script>
+
+</body>
+</html>
